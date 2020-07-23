@@ -1,6 +1,7 @@
 import program from 'commander';
 import moment from 'moment';
 import QuoteCommand from './commands/quote.command';
+import WatchlistCommand from './commands/watchlist.command';
 
 const pkg = require('../package.json'); // eslint-disable-line
 
@@ -28,5 +29,6 @@ program
   .option('-a, --add <symbols...>', 'Add ticker symbol(s) to the watchlist.')
   .option('-r, --remove <symbols...>', 'Remove ticker symbol(s) from the watchlist.')
   .option('--rename <name>', 'Rename the watchlist name.')
+  .action((lists, options) => new WatchlistCommand(lists, options).execute().catch(console.error));
 
 program.parse(process.argv);
