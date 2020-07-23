@@ -1,5 +1,6 @@
 import program from 'commander';
 import moment from 'moment';
+import QuoteCommand from './commands/quote.command';
 
 const pkg = require('../package.json'); // eslint-disable-line
 
@@ -16,6 +17,7 @@ program
   .option('--to [date]', 'The end date when fetching historical data.', moment().format('YYYY-MM-DD'))
   .option('--period [d|w|m|v]', 'The frequency of returned data.', 'd')
   .option('-i, --interactive', 'Enable interactive mode for fetching historical quotes.', false)
+  .action((symbols, options) => new QuoteCommand(symbols, options).execute().catch(console.error));
 
 program
   .command('watchlist [lists...]')
