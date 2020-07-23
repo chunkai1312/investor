@@ -6,11 +6,28 @@
   "license": "MIT",
   "bin": "bin/investor",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
     "lint": "eslint . --ext .ts",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepublish": "npm run build"
   },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chunkai1312/investor.git"
+  },
+  "keywords": [
+    "investor",
+    "watchlist",
+    "stock",
+    "finance",
+    "yahoo-finance"
+  ],
   "dependencies": {
     "chalk": "^4.1.0",
     "cli-table3": "^0.6.0",
@@ -34,6 +51,7 @@
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.5.0",
     "husky": "^4.2.5",
+    "rimraf": "^3.0.2",
     "standard-version": "^8.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
