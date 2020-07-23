@@ -1,5 +1,7 @@
 # investor
 
+[![NPM version][npm-image]][npm-url]
+
 > A investor's CLI tool written in NodeJS
 
 All stock data come from [Yahoo Finance](http://finance.yahoo.com/) powered by [node-yahoo-finance](https://github.com/pilwon/node-yahoo-finance).
@@ -51,3 +53,6 @@ Options:
 ## License
 
 MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
+
+[npm-image]: https://img.shields.io/npm/v/investor.svg
+[npm-url]: https://npmjs.org/package/investor
